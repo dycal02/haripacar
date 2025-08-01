@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selamat Hari Pacar Perempuan, Lala</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fddde6, #fcead2);
+      color: #4a2c2a;
+      overflow: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* ⭐ Efek bintang */
+    .stars {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      animation: moveStars 100s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes moveStars {
+      0% { background-position: 0 0, 15px 15px; }
+      100% { background-position: 10000px 5000px, 10015px 5015px; }
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .slide {
+      display: none;
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+    }
+
+    .slide.active {
+      display: block;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-img {
+      width: 100%;
+      max-height: 350px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .controls button {
+      font-size: 1.5rem;
+      margin: 0 15px;
+      padding: 8px 20px;
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .controls button:hover {
+      background-color: #ff94ac;
+    }
+
+    .page-number {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .music-button {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
+      background: #ffb6c1;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 20px;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    .music-button:hover {
+      background: #ff94ac;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Efek bintang -->
+  <div class="stars"></div>
+
+  <!-- Musik -->
+  <audio id="bgmusic" autoplay loop muted playsinline>
+    <source src="img/lagu.mp3" type="audio/mpeg" />
+  </audio>
+
+  <button class="music-button" onclick="unmuteMusic()">🎵 Play Music</button>
+
+  <!-- Isi Slide -->
+  <div class="container">
+    <div class="slide active">
+      <img src="img/2juga.png" class="slide-img" alt="Slide 1" />
+      <p>Selamat Hari Pacar Perempuan Nasional dan 9 bulan kita barengg, Lala 🩷<br><br>
+      Hari ini aku pengen bilang terima kasih... karena masih ada di samping aku, bahkan ketika aku sering gagal bikin lala bahagia.</p>
+      <div class="page-number">Slide 1 / 5</div>
+    </div>
+
+    <div class="slide">
+      <img src="img/3juga.gif" class="slide-img" alt="Slide 2" />
+      <p>Aku sadar aku belum jadi cowok yang kamu impikan.<br><br>
+      dan maaf juga aku baru tau harii ini hari girlfriend Tapi hari ini... aku cuma pengen lala tahu, aku lagi berjuang buat itu.</p>
+      <div class="page-number">Slide 2 / 5</div>
+    </div>
+
+    <div class="slide">
+      <img src="img/4juga.gif" class="slide-img" alt="Slide 3" />
+      <p>Aku rinduuu momen-momen kecil yg ngingetin aku sama lala<br><br>
+      Suara, tawa , senyum , dan pastinya pas lala bilang “sayang…”<br>
+      Dan aku tahu, aku harus lebih effort ,peka , dan menghargai lala</p>
+      <div class="page-number">Slide 3 / 5</div>
+    </div>
+
+    <div class="slide">
+      <img src="img/5juga.jpeg" class="slide-img" alt="Slide 4" />
+      <p>Hari ini, aku gak mau ngulang janji yang sama.<br><br>
+      Aku mau buktiin pelan-pelan... bahwa aku bisa, dan aku mau jadi lebih baik dari versi aku sebelumnya.</p>
+      <div class="page-number">Slide 4 / 5</div>
+    </div>
+
+    <div class="slide">
+      <img src="img/1juga.jpeg" class="slide-img" alt="Slide 5" />
+      <p>i love you, Lala. Walau banyak yang belum sempurna.<br><br>
+      Tapi lala tetap pacar terbaik~.<br>
+      Selamat Hari Pacar Perempuan </p>
+      <div class="page-number">Slide 5 / 5</div>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⟨</button>
+      <button onclick="nextSlide()">⟩</button>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+      });
+      slides[index].classList.add('active');
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+
+    function unmuteMusic() {
+      const audio = document.getElementById("bgmusic");
+      audio.muted = false;
+      audio.play();
+    }
+  </script>
+
+</body>
+</html>
